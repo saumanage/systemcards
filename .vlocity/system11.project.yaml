@@ -1,0 +1,7 @@
+Name: SYSTEM11
+ignoreDependencies: false
+VlocityDataPackKeys:
+    - VlocityCard/Derektestdata
+VlocityTypesToFetch:
+    - VlocityCard
+SalesforceTypesToFetch:

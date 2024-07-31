@@ -26,6 +26,11 @@ jobs:
           echo "TARGET_PASSWORD=$(yq e '.targetOrg.password' config.yml)" >> $GITHUB_ENV
           echo "TARGET_URL=$(yq e '.targetOrg.url' config.yml)" >> $GITHUB_ENV
 
+      - name: Install Salesforce CLI
+        run: |
+            sudo npm install -g sfdx-cli
+
+
       - name: Deploy to Salesforce
         run: |
           sfdx force:source:deploy -u $SOURCE_USERNAME -p path/to/source

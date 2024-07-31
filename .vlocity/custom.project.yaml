@@ -1,0 +1,7 @@
+Name: custom
+ignoreDependencies: false
+VlocityDataPackKeys:
+    - VlocityCard/Derektestdatamassmaillingmanager1222
+VlocityTypesToFetch:
+    - VlocityCard
+SalesforceTypesToFetch:

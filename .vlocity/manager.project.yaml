@@ -1,0 +1,7 @@
+Name: manager
+ignoreDependencies: false
+VlocityDataPackKeys:
+    - VlocityCard/manager115
+VlocityTypesToFetch:
+    - VlocityCard
+SalesforceTypesToFetch:

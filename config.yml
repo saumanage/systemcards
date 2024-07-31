@@ -1,0 +1,9 @@
+# config.yml
+sourceOrg:
+ username: sxbandi@sentara.com.sentarahealth.cicd1
+ password: Manager12345$
+ url: https://sentarahealth--cicd1.sandbox.my.salesforce.com
+targetOrg:
+ username: sxbandi@sentara.com.sentarahealth.cicd2
+ password: Salesforce12345$
+ url: https://sentarahealth--cicd2.sandbox.my.salesforce.com

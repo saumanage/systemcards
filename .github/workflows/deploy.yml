@@ -5,21 +5,24 @@ on:
     branches:
       - main
 jobs:
- deploy:
- runs-on: ubuntu-latest
- steps:
- - name: Checkout code
- uses: actions/checkout@v2
- - name: Read configuration
- id: config
- run: |
- echo "SOURCE_USERNAME=$(yq e '.sourceOrg.username' config.yml)" >> $GITHUB_ENV
- echo "SOURCE_PASSWORD=$(yq e '.sourceOrg.password' config.yml)" >> $GITHUB_ENV
- echo "SOURCE_URL=$(yq e '.sourceOrg.url' config.yml)" >> $GITHUB_ENV
- echo "TARGET_USERNAME=$(yq e '.targetOrg.username' config.yml)" >> $GITHUB_ENV
- echo "TARGET_PASSWORD=$(yq e '.targetOrg.password' config.yml)" >> $GITHUB_ENV
- echo "TARGET_URL=$(yq e '.targetOrg.url' config.yml)" >> $GITHUB_ENV
- - name: Deploy to Salesforce
- run: |
- sfdx force:source:deploy -u ${{ env.SOURCE_USERNAME }} -p path/to/source
- sfdx force:source:deploy -u ${{ env.TARGET_USERNAME }} -p path/to/target
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Read configuration
+        id: config
+        run: |
+          echo "SOURCE_USERNAME=$(yq e '.sourceOrg.username' config.yml)" >> $GITHUB_ENV
+          echo "SOURCE_PASSWORD=$(yq e '.sourceOrg.password' config.yml)" >> $GITHUB_ENV
+          echo "SOURCE_URL=$(yq e '.sourceOrg.url' config.yml)" >> $GITHUB_ENV
+          echo "TARGET_USERNAME=$(yq e '.targetOrg.username' config.yml)" >> $GITHUB_ENV
+          echo "TARGET_PASSWORD=$(yq e '.targetOrg.password' config.yml)" >> $GITHUB_ENV
+          echo "TARGET_URL=$(yq e '.targetOrg.url' config.yml)" >> $GITHUB_ENV
+
+      - name: Deploy to Salesforce
+        run: |
+          sfdx force:source:deploy -u $SOURCE_USERNAME -p path/to/source
+          sfdx force:source:deploy -u $TARGET_USERNAME -p path/to/target
+
